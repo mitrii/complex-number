@@ -81,7 +81,17 @@ class ComplexNumber
      */
     public function div($value): ComplexNumber
     {
+        $complexValue = $this->normalize($value);
 
+        $re = (($this->getRe() * $complexValue->getRe()) + ($this->getIm() * $complexValue->getIm()))
+            /
+            (($complexValue->getRe() ** 2) + ($complexValue->getIm() ** 2));
+
+        $im = (($this->getIm() * $complexValue->getRe()) - ($this->getRe() * $complexValue->getIm()))
+            /
+            (($complexValue->getRe() ** 2) + ($complexValue->getIm() ** 2));
+
+        return new ComplexNumber($re, $im);
     }
 
     /**
@@ -90,6 +100,11 @@ class ComplexNumber
      */
     public function mul($value): ComplexNumber
     {
+        $complexValue = $this->normalize($value);
 
+        $re = ($this->getRe() * $complexValue->getRe()) - ($this->getIm() * $complexValue->getIm());
+        $im = ($this->getIm() * $complexValue->getRe()) + ($this->getRe() * $complexValue->getIm());
+
+        return new ComplexNumber($re, $im, $this->precision);
     }
 }
