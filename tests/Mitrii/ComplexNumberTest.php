@@ -14,6 +14,12 @@ class ComplexNumberTest extends TestCase
 
         $complex = new ComplexNumber(3, -4, 4);
         self::assertSame((string) $complex, '3.0000-4.0000i');
+
+        $complex = new ComplexNumber(1.4556, 2.6149);
+        self::assertSame((string) $complex, '1.46+2.61i');
+
+        $complex = new ComplexNumber(1.4556, 2.6149, 3);
+        self::assertSame((string) $complex, '1.456+2.615i');
     }
 
     public function testMul()
