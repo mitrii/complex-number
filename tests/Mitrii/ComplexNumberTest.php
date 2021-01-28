@@ -37,17 +37,17 @@ class ComplexNumberTest extends TestCase
     {
         $complex = new ComplexNumber(1, 2, 2);
         $complex2 = $complex->div(3);
-        self::assertSame((string) $complex2, '0.33+0.66i', 'Division integer to complex number');
+        self::assertSame((string) $complex2, '0.33+0.67i', 'Division integer to complex number');
 
         $complex = new ComplexNumber(1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, 4.48, 2);
         $complex3 = $complex->div($complex2);
-        self::assertSame((string) $complex3, '0.52+0.07i', 'Division complex to complex number');
+        self::assertSame((string) $complex3, '0.52+0.08i', 'Division complex to complex number');
 
         $complex = new ComplexNumber(-1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, -4.48, 2);
         $complex3 = $complex->div($complex2);
-        self::assertSame((string) $complex3, '-0.52+0.07i', 'Division complex to complex number');
+        self::assertSame((string) $complex3, '-0.52+0.08i', 'Division complex to complex number');
     }
 
 
