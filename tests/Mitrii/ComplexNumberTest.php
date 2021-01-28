@@ -19,34 +19,34 @@ class ComplexNumberTest extends TestCase
     public function testMul()
     {
         $complex = new ComplexNumber(1, 2, 2);
-        $complex2 = $complex->sub(3);
+        $complex2 = $complex->mul(3);
         self::assertSame((string) $complex2, '3.00+6.00i', 'Multiplication integer to complex number');
 
         $complex = new ComplexNumber(1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, 4.48, 2);
-        $complex3 = $complex->sub($complex2);
+        $complex3 = $complex->mul($complex2);
         self::assertSame((string) $complex3, '-6.69+15.50', 'Multiplication complex to complex number');
 
         $complex = new ComplexNumber(-1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, -4.48, 2);
-        $complex3 = $complex->sub($complex2);
+        $complex3 = $complex->mul($complex2);
         self::assertSame((string) $complex3, '6.69+15.50i', 'Multiplication complex to complex number');
     }
 
     public function testDiv()
     {
         $complex = new ComplexNumber(1, 2, 2);
-        $complex2 = $complex->sub(3);
+        $complex2 = $complex->div(3);
         self::assertSame((string) $complex2, '0.33+0.66i', 'Division integer to complex number');
 
         $complex = new ComplexNumber(1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, 4.48, 2);
-        $complex3 = $complex->sub($complex2);
+        $complex3 = $complex->div($complex2);
         self::assertSame((string) $complex3, '0.52+0.07i', 'Division complex to complex number');
 
         $complex = new ComplexNumber(-1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, -4.48, 2);
-        $complex3 = $complex->sub($complex2);
+        $complex3 = $complex->div($complex2);
         self::assertSame((string) $complex3, '-0.52+0.07i', 'Division complex to complex number');
     }
 
