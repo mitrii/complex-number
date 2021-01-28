@@ -67,7 +67,12 @@ class ComplexNumber
      */
     public function sub($value): ComplexNumber
     {
+        $complexValue = $this->normalize($value);
 
+        $re = $this->getRe() - $complexValue->getRe();
+        $im = $this->getIm() - $complexValue->getIm();
+
+        return new ComplexNumber($re, $im, $this->precision);
     }
 
     /**
