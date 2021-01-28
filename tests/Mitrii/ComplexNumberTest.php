@@ -25,7 +25,7 @@ class ComplexNumberTest extends TestCase
         $complex = new ComplexNumber(1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, 4.48, 2);
         $complex3 = $complex->mul($complex2);
-        self::assertSame((string) $complex3, '-6.69+15.50', 'Multiplication complex to complex number');
+        self::assertSame((string) $complex3, '-6.69+15.50i', 'Multiplication complex to complex number');
 
         $complex = new ComplexNumber(-1.45, 2.61, 2);
         $complex2 = new ComplexNumber(3.45, -4.48, 2);
