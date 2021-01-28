@@ -17,7 +17,7 @@ after comma in string representation (default 2 ).
 ```
 
 To perform mathematical operations with Complex values, you can call 
-the appropriate method against a complex value, passing other values as argument
+the appropriate method against a complex value, passing other value as argument
 
 ```PHP
   $complex = new Mitrii\ComplexNumber(1.45, 2.61);
