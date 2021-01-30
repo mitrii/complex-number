@@ -40,8 +40,8 @@ To output trigonometric form create object of class `Mitrii\Complex\Trigonometri
 pass as four argument
 
 ```PHP
-  $complexNumber = new \Mitrii\Complex\Number(1.45, 2.61, 2, new \Mitrii\Complex\TrigonometricExporter());
-  echo $complexNumber;  // output sqrt(8.91)*(cos(phi)+isin(phi))
+  $complex = new \Mitrii\Complex\Number(1.45, 2.61, 2, new \Mitrii\Complex\TrigonometricExporter());
+  echo $complex;  // output sqrt(8.91)*(cos(phi)+isin(phi))
 ```
 
 ### Run tests
