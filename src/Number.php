@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Mitrii;
+namespace Mitrii\Complex;
 
-class ComplexNumber
+class Number
 {
 
     private float $re;
@@ -46,51 +46,51 @@ class ComplexNumber
     }
 
     /**
-     * @param ComplexNumber|int|float $value
-     * @return ComplexNumber
+     * @param Number|int|float $value
+     * @return Number
      */
-    protected function normalize($value): ComplexNumber
+    protected function normalize($value): Number
     {
         if ($value instanceof self) {
             return $value;
         }
 
-        return new ComplexNumber((float) $value, 0, $this->precision);
+        return new Number((float) $value, 0, $this->precision);
     }
 
     /**
-     * @param ComplexNumber|int|float $value
-     * @return ComplexNumber
+     * @param Number|int|float $value
+     * @return Number
      */
-    public function add($value): ComplexNumber
+    public function add($value): Number
     {
         $complexValue = $this->normalize($value);
 
         $re = $this->getRe() + $complexValue->getRe();
         $im = $this->getIm() + $complexValue->getIm();
 
-        return new ComplexNumber($re, $im, $this->precision);
+        return new Number($re, $im, $this->precision);
     }
 
     /**
-     * @param ComplexNumber|int|float $value
-     * @return ComplexNumber
+     * @param Number|int|float $value
+     * @return Number
      */
-    public function sub($value): ComplexNumber
+    public function sub($value): Number
     {
         $complexValue = $this->normalize($value);
 
         $re = $this->getRe() - $complexValue->getRe();
         $im = $this->getIm() - $complexValue->getIm();
 
-        return new ComplexNumber($re, $im, $this->precision);
+        return new Number($re, $im, $this->precision);
     }
 
     /**
-     * @param ComplexNumber|int|float $value
-     * @return ComplexNumber
+     * @param Number|int|float $value
+     * @return Number
      */
-    public function div($value): ComplexNumber
+    public function div($value): Number
     {
         $complexValue = $this->normalize($value);
 
@@ -102,20 +102,20 @@ class ComplexNumber
             /
             (($complexValue->getRe() ** 2) + ($complexValue->getIm() ** 2));
 
-        return new ComplexNumber($re, $im);
+        return new Number($re, $im);
     }
 
     /**
-     * @param ComplexNumber|int|float $value
-     * @return ComplexNumber
+     * @param Number|int|float $value
+     * @return Number
      */
-    public function mul($value): ComplexNumber
+    public function mul($value): Number
     {
         $complexValue = $this->normalize($value);
 
         $re = ($this->getRe() * $complexValue->getRe()) - ($this->getIm() * $complexValue->getIm());
         $im = ($this->getIm() * $complexValue->getRe()) + ($this->getRe() * $complexValue->getIm());
 
-        return new ComplexNumber($re, $im, $this->precision);
+        return new Number($re, $im, $this->precision);
     }
 }

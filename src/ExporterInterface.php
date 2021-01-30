@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Mitrii;
+namespace Mitrii\Complex;
 
 
 interface ExporterInterface
 {
-    public function export(ComplexNumber $number): string;
+    public function export(Number $number): string;
 }
