@@ -12,16 +12,22 @@ class ComplexNumber
 
     private int $precision;
 
-    public function __construct(float $re, float $im, int $precision = 2)
+    private ExporterInterface $exporter;
+
+    public function __construct(float $re, float $im, int $precision = 2, ExporterInterface $exporter = null)
     {
         $this->re = $re;
         $this->im = $im;
         $this->precision = $precision;
+
+        if ($exporter === null) {
+            $this->exporter = new AlgebraicExporter();
+        }
     }
 
     public function __toString(): string
     {
-        return sprintf("%0.{$this->precision}f%+0.{$this->precision}fi", $this->getRe(), $this->getIm());
+        return $this->exporter->export($this);
     }
 
     public function getRe(): float
@@ -32,6 +38,11 @@ class ComplexNumber
     public function getIm(): float
     {
         return $this->im;
+    }
+
+    public function getPrecision(): int
+    {
+        return $this->precision;
     }
 
     /**
